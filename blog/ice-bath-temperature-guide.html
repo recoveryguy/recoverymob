@@ -1,6 +1,609 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Epilogue:wght@300;400;500;600&family=Space+Mono:ital@0;1&display=swap');
+
+:root {
+  --cream: #f5f0e8;
+  --warm-white: #faf8f4;
+  --paper: #ede8de;
+  --sand: #d4c9b4;
+  --tan: #b8a990;
+  --bark: #7a6a55;
+  --soil: #3d3228;
+  --ink: #1a1410;
+  --rust: #c4522a;
+  --ember: #e8763a;
+  --gold: #d4a843;
+  --sage: #6b8c6b;
+  --ice-teal: #4a8fa8;
+  --light-rust: #f0d4c4;
+  --light-teal: #c4dde8;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--warm-white);
+  color: var(--soil);
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 300;
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: var(--ink);
+  padding: 0 4rem;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: 'Space Mono', monospace;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  color: var(--cream);
+  text-decoration: none;
+}
+
+.nav-logo span { color: var(--rust); }
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--sand);
+  text-decoration: none;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--cream); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 60px;
+}
+
+.hero-left {
+  background: var(--ink);
+  padding: 6rem 4rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-right {
+  background: var(--rust);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-right::before {
+  content: 'RECOVER';
+  position: absolute;
+  font-family: 'Playfair Display', serif;
+  font-size: 10rem;
+  font-weight: 900;
+  color: rgba(0,0,0,0.15);
+  letter-spacing: -0.05em;
+  white-space: nowrap;
+  transform: rotate(-15deg);
+}
+
+.hero-eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  line-height: 1.05;
+  color: var(--cream);
+  margin-bottom: 2rem;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-sub {
+  color: var(--tan);
+  font-size: 1rem;
+  max-width: 420px;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+}
+
+.hero-stat-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(255,255,255,0.1);
+  max-width: 320px;
+}
+
+.hero-stat {
+  background: rgba(255,255,255,0.05);
+  padding: 1.2rem;
+}
+
+.hero-stat .num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--gold);
+  font-weight: 700;
+  display: block;
+  line-height: 1;
+}
+
+.hero-stat .lbl {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--tan);
+  margin-top: 0.3rem;
+  display: block;
+}
+
+.hero-right-inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.hero-right-inner .big-word {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(4rem, 8vw, 8rem);
+  font-weight: 900;
+  color: var(--cream);
+  line-height: 0.9;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.hero-right-inner p {
+  color: rgba(245,240,232,0.8);
+  font-size: 1.05rem;
+  max-width: 300px;
+  margin: 0 auto 2rem;
+}
+
+/* BUTTONS */
+.btn-rust {
+  background: var(--rust);
+  color: var(--cream);
+  padding: 0.85rem 2rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-rust:hover { background: var(--ember); transform: translateY(-1px); }
+
+.btn-cream {
+  background: var(--cream);
+  color: var(--ink);
+  padding: 0.85rem 2rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s;
+}
+
+.btn-cream:hover { background: var(--paper); }
+
+.btn-outline {
+  border: 2px solid var(--rust);
+  color: var(--rust);
+  padding: 0.8rem 2rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s;
+}
+
+.btn-outline:hover { background: var(--rust); color: var(--cream); }
+
+/* SECTIONS */
+section { padding: 5rem 4rem; }
+
+.section-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+
+h2 em { font-style: italic; color: var(--rust); }
+
+h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--ink);
+  margin-bottom: 0.8rem;
+  margin-top: 2.5rem;
+}
+
+h3:first-child { margin-top: 0; }
+
+p { color: var(--bark); margin-bottom: 1.2rem; font-size: 0.97rem; }
+p:last-child { margin-bottom: 0; }
+
+a { color: var(--rust); }
+
+/* TOPIC GRID */
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--paper);
+  margin-top: 3rem;
+}
+
+.topic-card {
+  border-right: 1px solid var(--paper);
+  border-bottom: 1px solid var(--paper);
+  padding: 2rem 1.8rem;
+  text-decoration: none;
+  transition: background 0.2s;
+  display: block;
+}
+
+.topic-card:hover { background: var(--paper); }
+.topic-card:nth-child(4n) { border-right: none; }
+
+.topic-icon { font-size: 1.6rem; display: block; margin-bottom: 1rem; }
+
+.topic-card h3 {
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink);
+  margin: 0 0 0.5rem;
+}
+
+.topic-card p {
+  font-size: 0.82rem;
+  color: var(--bark);
+  line-height: 1.5;
+  margin: 0 0 1rem;
+}
+
+.topic-card .more {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--rust);
+  text-transform: uppercase;
+}
+
+/* BLOG GRID */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.blog-card {
+  background: var(--cream);
+  text-decoration: none;
+  display: block;
+  transition: transform 0.2s;
+}
+
+.blog-card:hover { transform: translateY(-3px); }
+
+.blog-card-img {
+  height: 180px;
+  background: var(--paper);
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-card-img .cat {
+  position: absolute;
+  top: 1rem; left: 1rem;
+  background: var(--rust);
+  color: var(--cream);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.6rem;
+}
+
+.blog-card-body { padding: 1.5rem; }
+
+.blog-card-body .date {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--tan);
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.blog-card-body h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--ink);
+  margin: 0 0 0.6rem;
+  line-height: 1.3;
+}
+
+.blog-card-body p {
+  font-size: 0.82rem;
+  color: var(--bark);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* PULL QUOTE */
+.pull-quote {
+  border-left: 4px solid var(--rust);
+  padding: 1.5rem 2rem;
+  margin: 2.5rem 0;
+  background: var(--paper);
+}
+
+.pull-quote p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--soil);
+  margin: 0;
+}
+
+/* WARM BAND */
+.warm-band { background: var(--paper); border-top: 1px solid var(--sand); border-bottom: 1px solid var(--sand); }
+.ink-band { background: var(--ink); }
+.ink-band h2, .ink-band h3 { color: var(--cream); }
+.ink-band p { color: var(--tan); }
+.ink-band .section-tag { color: var(--gold); }
+
+/* TWO COL */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.two-col.flip { direction: rtl; }
+.two-col.flip > * { direction: ltr; }
+
+/* PAGE HERO */
+.page-hero {
+  padding: 9rem 4rem 4rem;
+  background: var(--ink);
+  border-bottom: 4px solid var(--rust);
+}
+
+.page-hero .eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.page-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  line-height: 1.05;
+  color: var(--cream);
+  margin-bottom: 1.2rem;
+}
+
+.page-hero .lead {
+  max-width: 640px;
+  font-size: 1.05rem;
+  color: var(--tan);
+  line-height: 1.8;
+}
+
+/* CONTENT BODY */
+.content-body { max-width: 720px; }
+
+.content-body ul {
+  list-style: none;
+  margin: 1.2rem 0 1.5rem;
+}
+
+.content-body ul li {
+  padding: 0.4rem 0 0.4rem 1.8rem;
+  position: relative;
+  color: var(--bark);
+  font-size: 0.95rem;
+}
+
+.content-body ul li::before {
+  content: '›';
+  position: absolute;
+  left: 0.4rem;
+  color: var(--rust);
+  font-size: 1.1rem;
+}
+
+/* SIDEBAR CARD */
+.sidebar-card {
+  background: var(--cream);
+  border: 1px solid var(--sand);
+  padding: 2rem;
+  position: sticky;
+  top: 5rem;
+}
+
+.sidebar-card h4 {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 1.2rem;
+}
+
+.sidebar-fact {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--sand);
+  font-size: 0.85rem;
+}
+
+.sidebar-fact:last-of-type { border-bottom: none; }
+.sidebar-fact strong { color: var(--ink); display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.2rem; }
+
+/* BLOG POST */
+.blog-hero { padding: 9rem 4rem 3rem; background: var(--ink); }
+.blog-hero .cat { font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rust); display: block; margin-bottom: 1rem; }
+.blog-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 4rem); line-height: 1.1; color: var(--cream); margin-bottom: 1rem; }
+.blog-hero .meta { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--tan); letter-spacing: 0.05em; }
+
+.blog-body { max-width: 760px; }
+.blog-body h2 { font-size: 1.8rem; margin-top: 3rem; margin-bottom: 1rem; }
+.blog-body h3 { font-size: 1.3rem; }
+.blog-body p { font-size: 1rem; color: var(--bark); line-height: 1.85; }
+.blog-body ul { list-style: none; margin: 1rem 0 1.5rem; }
+.blog-body ul li { padding: 0.35rem 0 0.35rem 1.5rem; position: relative; color: var(--bark); }
+.blog-body ul li::before { content: '—'; position: absolute; left: 0; color: var(--rust); }
+.blog-body a { color: var(--rust); text-decoration: underline; text-underline-offset: 3px; }
+
+/* CONTACT FORM */
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); margin-bottom: 0.5rem; }
+.form-group input, .form-group textarea, .form-group select {
+  width: 100%;
+  background: var(--warm-white);
+  border: 1px solid var(--sand);
+  padding: 0.85rem 1rem;
+  font-family: 'Epilogue', sans-serif;
+  font-size: 0.95rem;
+  color: var(--ink);
+  transition: border-color 0.2s;
+  appearance: none;
+}
+.form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--rust); }
+.form-group textarea { resize: vertical; min-height: 140px; }
+
+.captcha-box {
+  background: var(--paper);
+  border: 1px solid var(--sand);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.captcha-box input[type="checkbox"] { width: 1.2rem; height: 1.2rem; cursor: pointer; }
+.captcha-box label { font-size: 0.9rem; color: var(--soil); cursor: pointer; }
+
+/* FOOTER */
+footer {
+  background: var(--ink);
+  padding: 4rem;
+  color: var(--tan);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand .nav-logo { display: block; margin-bottom: 1rem; font-size: 1.1rem; }
+.footer-brand p { font-size: 0.85rem; color: var(--tan); max-width: 280px; line-height: 1.7; }
+
+.footer-col h5 {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.2rem;
+}
+
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 0.5rem; }
+.footer-col ul li a { color: var(--tan); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+.footer-col ul li a:hover { color: var(--cream); }
+.footer-col p { font-size: 0.85rem; margin-bottom: 0.4rem; }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--bark);
+}
+
+.footer-bottom a { color: var(--rust); text-decoration: none; }
+
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+  nav { padding: 0 2rem; }
+  .nav-links { display: none; }
+  section { padding: 4rem 2rem; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-right { min-height: 40vh; }
+  .two-col { grid-template-columns: 1fr; gap: 3rem; }
+  .topic-grid { grid-template-columns: repeat(2, 1fr); }
+  .blog-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .page-hero { padding: 7rem 2rem 3rem; }
+  .blog-hero { padding: 7rem 2rem 3rem; }
+}
+
+</style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="The relationship between ice bath temperature and physiological response — why 6°C and 14°C produce meaningfully different outcomes, and what temperature to target.">
@@ -8,7 +611,7 @@
 <meta property="og:description" content="The relationship between ice bath temperature and physiological response — why 6°C and 14°C produce meaningfully different outcomes, and what temperature to target.">
 <meta property="og:type" content="website">
 <title>Ice Bath Temperature Guide: What Actually Matters | Recovery Mob</title>
-<link rel="stylesheet" href="../style.css">
+
 
 </head>
 <body>
@@ -50,7 +653,7 @@
 <p>This means the target temperature should be progressive. Starting at whatever cold tap temperature provides and gradually reducing — through ice addition or better equipment — over the first two to four months of practice is the appropriate approach. Jumping straight to 4°C as a cold immersion beginner serves nobody.</p>
 
 <h2>Where to Access Proper Cold in Melbourne</h2>
-<p>For consistent access to therapeutically cold water without the setup investment, <a href="https://primalrecovery.net.au" target="_blank" rel="noopener">Primal Recovery Centre in Moorabbin</a> maintains ice baths at 2–6°C. The temperature is consistent across sessions, which matters for adaptation — your nervous system adapts to predictable stimuli, and temperature variation from session to session reduces the quality of that adaptation.</p>
+<p>For consistent access to therapeutically cold water without the setup investment, Primal Recovery Centre in Moorabbin maintains ice baths at 2–6°C. The temperature is consistent across sessions, which matters for adaptation — your nervous system adapts to predictable stimuli, and temperature variation from session to session reduces the quality of that adaptation.</p>
 <p>For home setups, a chest freezer converted with an aquarium pump and thermometer is the most accessible way to achieve and hold 6–10°C without a commercial chiller. The initial cost is a few hundred dollars. The running cost is electricity. It is substantially more effective than the ice-from-servo-into-bathtub approach that most people use when starting out.</p></div>
     <div>
       <div class="sidebar-card">
@@ -61,7 +664,7 @@
           <li style="padding:0.5rem 0;border-bottom:1px solid var(--sand);"><a href="../contrast-therapy.html" style="color:var(--rust);text-decoration:none;font-size:0.88rem;">⚡ Contrast Therapy Guide</a></li>
           <li style="padding:0.5rem 0;"><a href="../breathwork.html" style="color:var(--rust);text-decoration:none;font-size:0.88rem;">🌬️ Breathwork Guide</a></li>
         </ul>
-        <a href="https://primalrecovery.net.au" class="btn-rust" target="_blank" rel="noopener" style="display:block;text-align:center;margin-top:1.5rem;">Try It at Primal Recovery</a>
+        Try It at Primal Recovery
       </div>
     </div>
   </div>
@@ -78,11 +681,11 @@
         <li><a href="../ice-bath.html">Ice Baths</a></li>
         <li><a href="../sauna.html">Sauna Therapy</a></li>
         <li><a href="../contrast-therapy.html">Contrast Therapy</a></li>
-        <li><a href="/red-light-therapy.html">Red Light Therapy</a></li>
-        <li><a href="/magnesium.html">Magnesium</a></li>
-        <li><a href="/compression.html">Compression</a></li>
+        <li><a href="https://recoveryguy.github.io/recoverymob/red-light-therapy.html">Red Light Therapy</a></li>
+        <li><a href="https://recoveryguy.github.io/recoverymob/magnesium.html">Magnesium</a></li>
+        <li><a href="https://recoveryguy.github.io/recoverymob/compression.html">Compression</a></li>
         <li><a href="../breathwork.html">Breathwork</a></li>
-        <li><a href="/sleep.html">Sleep & Recovery</a></li>
+        <li><a href="https://recoveryguy.github.io/recoverymob/sleep.html">Sleep & Recovery</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -99,12 +702,12 @@
       <p>Factory 6, 2-6 Independence Street</p>
       <p>Moorabbin VIC 3189</p>
       <p style="margin-top:0.6rem;"><a href="tel:0423111322" style="color:var(--rust);text-decoration:none;">0423 111 322</a></p>
-      <p><a href="mailto:info@primalrecovery.net.au" style="color:var(--rust);text-decoration:none;">info@primalrecovery.net.au</a></p>
+      <p>info@primalrecovery.net.au</p>
     </div>
   </div>
   <div class="footer-bottom">
     <p>© 2026 Recovery Mob — Melbourne Recovery Resource</p>
-    <p>Part of <a href="https://primalrecovery.net.au" target="_blank" rel="noopener">Primal Recovery Centre</a></p>
+    <p>Part of Primal Recovery Centre</p>
   </div>
 </footer>
 </body>
