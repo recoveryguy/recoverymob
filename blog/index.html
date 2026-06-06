@@ -1,732 +1,236 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Recovery Blog | Cold, Heat & Recovery Science | Recovery Mob</title>
+<meta name="description" content="Evidence-based recovery articles covering cold exposure, sauna, contrast therapy, magnesium, sleep and performance science.">
+<link rel="canonical" href="https://recoveryguy.github.io/recoverymob/blog/index.html">
+<meta property="og:title" content="Recovery Blog | Cold, Heat & Recovery Science | Recovery Mob"><meta property="og:description" content="Evidence-based recovery articles covering cold exposure, sauna, contrast therapy, magnesium, sleep and performance science.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://recoveryguy.github.io/recoverymob/blog/index.html">
+<meta name="author" content="Recovery Editorial Team">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Epilogue:wght@300;400;500;600&family=Space+Mono:ital@0;1&display=swap');
-
-:root {
-  --cream: #f5f0e8;
-  --warm-white: #faf8f4;
-  --paper: #ede8de;
-  --sand: #d4c9b4;
-  --tan: #b8a990;
-  --bark: #7a6a55;
-  --soil: #3d3228;
-  --ink: #1a1410;
-  --rust: #c4522a;
-  --ember: #e8763a;
-  --gold: #d4a843;
-  --sage: #6b8c6b;
-  --ice-teal: #4a8fa8;
-  --light-rust: #f0d4c4;
-  --light-teal: #c4dde8;
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+--bg:#0c1116;--surface:#121a22;--surface2:#18222c;--line:#243240;
+--text:#e6edf3;--muted:#8da3b8;--dim:#5f7488;
+--ice:#5cc8f5;--ice2:#3a9fd4;--deep:#0a4d6e;--ember:#e8a04a;
 }
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--warm-white);
-  color: var(--soil);
-  font-family: 'Epilogue', sans-serif;
-  font-weight: 300;
-  line-height: 1.75;
-  overflow-x: hidden;
-}
+body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;font-weight:300;line-height:1.75;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 2rem}
+a{color:var(--ice)}
 
 /* NAV */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  background: var(--ink);
-  padding: 0 4rem;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.nav-logo {
-  font-family: 'Space Mono', monospace;
-  font-size: 1rem;
-  letter-spacing: 0.05em;
-  color: var(--cream);
-  text-decoration: none;
-}
-
-.nav-logo span { color: var(--rust); }
-
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
-
-.nav-links a {
-  color: var(--sand);
-  text-decoration: none;
-  font-size: 0.76rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-
-.nav-links a:hover { color: var(--cream); }
+nav{position:sticky;top:0;z-index:50;background:rgba(12,17,22,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1180px;margin:0 auto;padding:.9rem 2rem;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.logo svg{display:block}
+.logo-txt{font-family:'Sora';font-weight:800;font-size:1.15rem;letter-spacing:-.02em;color:var(--text);line-height:1}
+.logo-txt b{color:var(--ice)}
+.logo-txt small{display:block;font-size:.5rem;font-weight:500;letter-spacing:.35em;color:var(--dim);margin-top:2px}
+.nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.82rem;font-weight:500;letter-spacing:.02em;transition:color .15s}
+.nav-links a:hover{color:var(--text)}
 
 /* HERO */
-.hero {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding-top: 60px;
-}
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:0;min-height:480px}
+.hero-content{padding:5rem 0 5rem;display:flex;flex-direction:column;justify-content:center;max-width:560px}
+.hero-eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--ice);margin-bottom:1.3rem}
+.hero h1{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(2.6rem,5vw,4.2rem);line-height:1.05;letter-spacing:-.01em;color:var(--text);margin-bottom:1.4rem}
+.hero h1 em{font-style:italic;color:var(--ice)}
+.hero p{color:var(--muted);font-size:1.05rem;margin-bottom:2.2rem;max-width:480px}
+.hero-cta{display:flex;gap:.9rem;flex-wrap:wrap}
+.hero-visual{position:relative}
+.hero-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.7) saturate(1.1)}
+.hero-visual::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 0%,transparent 30%,transparent 70%,rgba(12,17,22,.4) 100%)}
 
-.hero-left {
-  background: var(--ink);
-  padding: 6rem 4rem 4rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.hero-right {
-  background: var(--rust);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-right::before {
-  content: 'RECOVER';
-  position: absolute;
-  font-family: 'Playfair Display', serif;
-  font-size: 10rem;
-  font-weight: 900;
-  color: rgba(0,0,0,0.15);
-  letter-spacing: -0.05em;
-  white-space: nowrap;
-  transform: rotate(-15deg);
-}
-
-.hero-eyebrow {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--rust);
-  margin-bottom: 1.5rem;
-}
-
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(3rem, 5vw, 5.5rem);
-  line-height: 1.05;
-  color: var(--cream);
-  margin-bottom: 2rem;
-}
-
-.hero h1 em {
-  font-style: italic;
-  color: var(--gold);
-}
-
-.hero-sub {
-  color: var(--tan);
-  font-size: 1rem;
-  max-width: 420px;
-  line-height: 1.8;
-  margin-bottom: 3rem;
-}
-
-.hero-stat-block {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1px;
-  background: rgba(255,255,255,0.1);
-  max-width: 320px;
-}
-
-.hero-stat {
-  background: rgba(255,255,255,0.05);
-  padding: 1.2rem;
-}
-
-.hero-stat .num {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  color: var(--gold);
-  font-weight: 700;
-  display: block;
-  line-height: 1;
-}
-
-.hero-stat .lbl {
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--tan);
-  margin-top: 0.3rem;
-  display: block;
-}
-
-.hero-right-inner {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-}
-
-.hero-right-inner .big-word {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(4rem, 8vw, 8rem);
-  font-weight: 900;
-  color: var(--cream);
-  line-height: 0.9;
-  display: block;
-  margin-bottom: 1.5rem;
-}
-
-.hero-right-inner p {
-  color: rgba(245,240,232,0.8);
-  font-size: 1.05rem;
-  max-width: 300px;
-  margin: 0 auto 2rem;
-}
-
-/* BUTTONS */
-.btn-rust {
-  background: var(--rust);
-  color: var(--cream);
-  padding: 0.85rem 2rem;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  text-decoration: none;
-  display: inline-block;
-  transition: background 0.2s, transform 0.15s;
-}
-
-.btn-rust:hover { background: var(--ember); transform: translateY(-1px); }
-
-.btn-cream {
-  background: var(--cream);
-  color: var(--ink);
-  padding: 0.85rem 2rem;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  text-decoration: none;
-  display: inline-block;
-  transition: background 0.2s;
-}
-
-.btn-cream:hover { background: var(--paper); }
-
-.btn-outline {
-  border: 2px solid var(--rust);
-  color: var(--rust);
-  padding: 0.8rem 2rem;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  text-decoration: none;
-  display: inline-block;
-  transition: all 0.2s;
-}
-
-.btn-outline:hover { background: var(--rust); color: var(--cream); }
+.btn{padding:.8rem 1.7rem;font-family:'Sora';font-size:.8rem;font-weight:600;letter-spacing:.04em;text-decoration:none;border-radius:2px;transition:all .18s;display:inline-block;cursor:pointer;border:none}
+.btn-pri{background:var(--ice);color:#06141d}
+.btn-pri:hover{background:#7ad4f7}
+.btn-ghost{border:1px solid var(--line);color:var(--text);background:transparent}
+.btn-ghost:hover{border-color:var(--ice);color:var(--ice)}
 
 /* SECTIONS */
-section { padding: 5rem 4rem; }
+section{padding:4.5rem 0}
+.tag{font-size:.68rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--ice);margin-bottom:.9rem;display:block}
+h2{font-family:'Newsreader',serif;font-weight:500;font-size:clamp(1.9rem,3.5vw,2.9rem);line-height:1.1;color:var(--text);margin-bottom:1.1rem;letter-spacing:-.01em}
+h2 em{font-style:italic;color:var(--ice)}
+h3{font-family:'Sora';font-weight:600;font-size:1.15rem;color:var(--text);margin:2rem 0 .7rem}
+p{color:var(--muted);margin-bottom:1.1rem}
+.lead{font-size:1.1rem;color:var(--text);max-width:620px}
 
-.section-tag {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--rust);
-  margin-bottom: 0.8rem;
-  display: block;
+/* CATEGORY CARDS (homepage 3 pillars) */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.pillar{background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden;text-decoration:none;transition:transform .2s,border-color .2s;display:block}
+.pillar:hover{transform:translateY(-4px);border-color:var(--ice2)}
+.pillar-img{height:170px;position:relative;background:linear-gradient(135deg,#1a2832,#0d1419);overflow:hidden}
+.pillar-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.78)}
+.pillar-body{padding:1.6rem}
+.pillar-body h3{margin:0 0 .5rem;font-size:1.25rem}
+.pillar-body p{font-size:.9rem;margin:0;color:var(--muted)}
+.pillar-tag{display:inline-block;margin-top:1rem;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ice)}
+
+/* TOPIC LIST */
+.topics{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:2.5rem}
+.topic{background:var(--surface);border:1px solid var(--line);border-radius:5px;padding:1.5rem;text-decoration:none;display:flex;gap:1rem;align-items:flex-start;transition:border-color .2s,background .2s}
+.topic:hover{border-color:var(--ice2);background:var(--surface2)}
+.topic-ic{font-size:1.5rem;line-height:1;flex-shrink:0}
+.topic h3{margin:0 0 .3rem;font-size:1rem}
+.topic p{margin:0;font-size:.85rem;color:var(--dim)}
+
+/* ARTICLE LAYOUT */
+.article{display:grid;grid-template-columns:1fr 300px;gap:3.5rem;align-items:start}
+.prose{max-width:none;min-width:0}
+.prose h2{font-size:1.7rem;margin-top:2.5rem}
+.prose h3{font-size:1.18rem}
+.prose p{color:var(--muted);font-size:1rem}
+.prose ul{list-style:none;margin:1.2rem 0}
+.prose ul li{padding:.35rem 0 .35rem 1.6rem;position:relative;color:var(--muted)}
+.prose ul li::before{content:'';position:absolute;left:0;top:.95rem;width:7px;height:7px;background:var(--ice);border-radius:50%}
+.prose-img{width:100%;border-radius:6px;margin:2rem 0;display:block;background:linear-gradient(135deg,#1a2832,#0d1419);min-height:240px;object-fit:cover;filter:brightness(.85)}
+.prose strong{color:var(--text);font-weight:600}
+
+/* breadcrumb */
+.crumb{font-size:.78rem;color:var(--dim);margin-bottom:1.5rem}
+.crumb a{color:var(--muted);text-decoration:none}
+.crumb a:hover{color:var(--ice)}
+.crumb span{margin:0 .5rem;color:var(--line)}
+
+/* sidebar */
+.aside{position:sticky;top:90px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:1.6rem;margin-bottom:1.3rem}
+.card h4{font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ice);margin-bottom:1.1rem}
+.fact{padding:.6rem 0;border-bottom:1px solid var(--line);font-size:.86rem;color:var(--muted)}
+.fact:last-child{border:none}
+.fact b{display:block;color:var(--text);font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.15rem;font-weight:600}
+.card-links{list-style:none}
+.card-links li{padding:.5rem 0;border-bottom:1px solid var(--line)}
+.card-links li:last-child{border:none}
+.card-links a{color:var(--muted);text-decoration:none;font-size:.86rem;transition:color .15s}
+.card-links a:hover{color:var(--ice)}
+
+/* pull quote */
+.pq{border-left:3px solid var(--ice);padding:1.2rem 1.6rem;margin:2rem 0;background:var(--surface)}
+.pq p{font-family:'Newsreader',serif;font-style:italic;font-size:1.2rem;color:var(--text);margin:0;line-height:1.5}
+
+/* FAQ */
+.faq{margin-top:1.5rem}
+.faq details{border:1px solid var(--line);border-radius:5px;margin-bottom:.7rem;background:var(--surface);overflow:hidden}
+.faq summary{padding:1.1rem 1.4rem;cursor:pointer;font-weight:500;font-size:.95rem;color:var(--text);list-style:none;position:relative;padding-right:3rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';position:absolute;right:1.4rem;top:50%;transform:translateY(-50%);font-size:1.3rem;color:var(--ice);font-weight:300}
+.faq details[open] summary::after{content:'−'}
+.faq details[open] summary{border-bottom:1px solid var(--line)}
+.faq-a{padding:1.1rem 1.4rem;color:var(--muted);font-size:.92rem}
+
+/* protocol table */
+.ptable{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.9rem}
+.ptable th,.ptable td{padding:.8rem 1rem;text-align:left;border-bottom:1px solid var(--line)}
+.ptable th{color:var(--ice);font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em}
+.ptable td{color:var(--muted)}
+.ptable tr:hover td{background:var(--surface)}
+
+/* related */
+.related{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem}
+.rel{background:var(--surface);border:1px solid var(--line);border-radius:5px;overflow:hidden;text-decoration:none;transition:border-color .2s}
+.rel:hover{border-color:var(--ice2)}
+.rel-img{height:120px;background:linear-gradient(135deg,#1a2832,#0d1419);overflow:hidden}
+.rel-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.8)}
+.rel-body{padding:1rem}
+.rel-body h4{font-size:.9rem;color:var(--text);font-weight:500;margin:0;line-height:1.3}
+
+/* blog grid */
+.bloglist{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.bcard{background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden;text-decoration:none;transition:transform .2s,border-color .2s}
+.bcard:hover{transform:translateY(-3px);border-color:var(--ice2)}
+.bcard-img{height:160px;background:linear-gradient(135deg,#1a2832,#0d1419);overflow:hidden;position:relative}
+.bcard-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.8)}
+.bcard-cat{position:absolute;top:.8rem;left:.8rem;background:rgba(12,17,22,.85);color:var(--ice);font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .6rem;border-radius:3px}
+.bcard-body{padding:1.3rem}
+.bcard-body h3{font-size:1.02rem;margin:0 0 .4rem;line-height:1.3}
+.bcard-body p{font-size:.83rem;color:var(--dim);margin:0}
+
+/* footer */
+footer{background:var(--surface);border-top:1px solid var(--line);padding:3rem 0 2rem;margin-top:3rem}
+.foot-in{max-width:1180px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:2rem}
+.foot-brand{max-width:300px}
+.foot-brand p{font-size:.82rem;color:var(--dim);margin-top:.8rem}
+.foot-links{display:flex;gap:2.5rem}
+.foot-col h5{font-size:.65rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ice);margin-bottom:.9rem}
+.foot-col ul{list-style:none}
+.foot-col li{margin-bottom:.45rem}
+.foot-col a{color:var(--muted);text-decoration:none;font-size:.84rem}
+.foot-col a:hover{color:var(--text)}
+.foot-bottom{max-width:1180px;margin:2.5rem auto 0;padding:1.5rem 2rem 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:.76rem;color:var(--dim);flex-wrap:wrap;gap:.5rem}
+.foot-addr{font-size:.82rem;color:var(--muted);margin-top:.6rem}
+
+@media(max-width:900px){
+.nav-links{display:none}
+.hero-grid{grid-template-columns:1fr}
+.hero-visual{min-height:240px;order:-1}
+.hero-visual::after{background:linear-gradient(180deg,transparent 40%,var(--bg) 100%)}
+.hero-content{padding:3rem 0}
+.pillars,.related,.bloglist{grid-template-columns:1fr}
+.topics{grid-template-columns:1fr}
+.article{grid-template-columns:1fr;gap:2rem}
+.aside{position:static}
 }
-
-h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  line-height: 1.1;
-  color: var(--ink);
-  margin-bottom: 1.5rem;
-}
-
-h2 em { font-style: italic; color: var(--rust); }
-
-h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  color: var(--ink);
-  margin-bottom: 0.8rem;
-  margin-top: 2.5rem;
-}
-
-h3:first-child { margin-top: 0; }
-
-p { color: var(--bark); margin-bottom: 1.2rem; font-size: 0.97rem; }
-p:last-child { margin-bottom: 0; }
-
-a { color: var(--rust); }
-
-/* TOPIC GRID */
-.topic-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  border: 1px solid var(--paper);
-  margin-top: 3rem;
-}
-
-.topic-card {
-  border-right: 1px solid var(--paper);
-  border-bottom: 1px solid var(--paper);
-  padding: 2rem 1.8rem;
-  text-decoration: none;
-  transition: background 0.2s;
-  display: block;
-}
-
-.topic-card:hover { background: var(--paper); }
-.topic-card:nth-child(4n) { border-right: none; }
-
-.topic-icon { font-size: 1.6rem; display: block; margin-bottom: 1rem; }
-
-.topic-card h3 {
-  font-family: 'Epilogue', sans-serif;
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--ink);
-  margin: 0 0 0.5rem;
-}
-
-.topic-card p {
-  font-size: 0.82rem;
-  color: var(--bark);
-  line-height: 1.5;
-  margin: 0 0 1rem;
-}
-
-.topic-card .more {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  color: var(--rust);
-  text-transform: uppercase;
-}
-
-/* BLOG GRID */
-.blog-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.blog-card {
-  background: var(--cream);
-  text-decoration: none;
-  display: block;
-  transition: transform 0.2s;
-}
-
-.blog-card:hover { transform: translateY(-3px); }
-
-.blog-card-img {
-  height: 180px;
-  background: var(--paper);
-  position: relative;
-  overflow: hidden;
-}
-
-.blog-card-img .cat {
-  position: absolute;
-  top: 1rem; left: 1rem;
-  background: var(--rust);
-  color: var(--cream);
-  font-family: 'Space Mono', monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.3rem 0.6rem;
-}
-
-.blog-card-body { padding: 1.5rem; }
-
-.blog-card-body .date {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.65rem;
-  color: var(--tan);
-  letter-spacing: 0.08em;
-  display: block;
-  margin-bottom: 0.6rem;
-}
-
-.blog-card-body h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
-  color: var(--ink);
-  margin: 0 0 0.6rem;
-  line-height: 1.3;
-}
-
-.blog-card-body p {
-  font-size: 0.82rem;
-  color: var(--bark);
-  margin: 0;
-  line-height: 1.5;
-}
-
-/* PULL QUOTE */
-.pull-quote {
-  border-left: 4px solid var(--rust);
-  padding: 1.5rem 2rem;
-  margin: 2.5rem 0;
-  background: var(--paper);
-}
-
-.pull-quote p {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 1.25rem;
-  line-height: 1.5;
-  color: var(--soil);
-  margin: 0;
-}
-
-/* WARM BAND */
-.warm-band { background: var(--paper); border-top: 1px solid var(--sand); border-bottom: 1px solid var(--sand); }
-.ink-band { background: var(--ink); }
-.ink-band h2, .ink-band h3 { color: var(--cream); }
-.ink-band p { color: var(--tan); }
-.ink-band .section-tag { color: var(--gold); }
-
-/* TWO COL */
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-.two-col.flip { direction: rtl; }
-.two-col.flip > * { direction: ltr; }
-
-/* PAGE HERO */
-.page-hero {
-  padding: 9rem 4rem 4rem;
-  background: var(--ink);
-  border-bottom: 4px solid var(--rust);
-}
-
-.page-hero .eyebrow {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--rust);
-  margin-bottom: 1rem;
-  display: block;
-}
-
-.page-hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.5rem, 6vw, 5.5rem);
-  line-height: 1.05;
-  color: var(--cream);
-  margin-bottom: 1.2rem;
-}
-
-.page-hero .lead {
-  max-width: 640px;
-  font-size: 1.05rem;
-  color: var(--tan);
-  line-height: 1.8;
-}
-
-/* CONTENT BODY */
-.content-body { max-width: 720px; }
-
-.content-body ul {
-  list-style: none;
-  margin: 1.2rem 0 1.5rem;
-}
-
-.content-body ul li {
-  padding: 0.4rem 0 0.4rem 1.8rem;
-  position: relative;
-  color: var(--bark);
-  font-size: 0.95rem;
-}
-
-.content-body ul li::before {
-  content: '›';
-  position: absolute;
-  left: 0.4rem;
-  color: var(--rust);
-  font-size: 1.1rem;
-}
-
-/* SIDEBAR CARD */
-.sidebar-card {
-  background: var(--cream);
-  border: 1px solid var(--sand);
-  padding: 2rem;
-  position: sticky;
-  top: 5rem;
-}
-
-.sidebar-card h4 {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--rust);
-  margin-bottom: 1.2rem;
-}
-
-.sidebar-fact {
-  padding: 0.7rem 0;
-  border-bottom: 1px solid var(--sand);
-  font-size: 0.85rem;
-}
-
-.sidebar-fact:last-of-type { border-bottom: none; }
-.sidebar-fact strong { color: var(--ink); display: block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.2rem; }
-
-/* BLOG POST */
-.blog-hero { padding: 9rem 4rem 3rem; background: var(--ink); }
-.blog-hero .cat { font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rust); display: block; margin-bottom: 1rem; }
-.blog-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 4rem); line-height: 1.1; color: var(--cream); margin-bottom: 1rem; }
-.blog-hero .meta { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--tan); letter-spacing: 0.05em; }
-
-.blog-body { max-width: 760px; }
-.blog-body h2 { font-size: 1.8rem; margin-top: 3rem; margin-bottom: 1rem; }
-.blog-body h3 { font-size: 1.3rem; }
-.blog-body p { font-size: 1rem; color: var(--bark); line-height: 1.85; }
-.blog-body ul { list-style: none; margin: 1rem 0 1.5rem; }
-.blog-body ul li { padding: 0.35rem 0 0.35rem 1.5rem; position: relative; color: var(--bark); }
-.blog-body ul li::before { content: '—'; position: absolute; left: 0; color: var(--rust); }
-.blog-body a { color: var(--rust); text-decoration: underline; text-underline-offset: 3px; }
-
-/* CONTACT FORM */
-.form-group { margin-bottom: 1.5rem; }
-.form-group label { display: block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); margin-bottom: 0.5rem; }
-.form-group input, .form-group textarea, .form-group select {
-  width: 100%;
-  background: var(--warm-white);
-  border: 1px solid var(--sand);
-  padding: 0.85rem 1rem;
-  font-family: 'Epilogue', sans-serif;
-  font-size: 0.95rem;
-  color: var(--ink);
-  transition: border-color 0.2s;
-  appearance: none;
-}
-.form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--rust); }
-.form-group textarea { resize: vertical; min-height: 140px; }
-
-.captcha-box {
-  background: var(--paper);
-  border: 1px solid var(--sand);
-  padding: 1rem 1.5rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.captcha-box input[type="checkbox"] { width: 1.2rem; height: 1.2rem; cursor: pointer; }
-.captcha-box label { font-size: 0.9rem; color: var(--soil); cursor: pointer; }
-
-/* FOOTER */
-footer {
-  background: var(--ink);
-  padding: 4rem;
-  color: var(--tan);
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 3rem;
-  margin-bottom: 3rem;
-}
-
-.footer-brand .nav-logo { display: block; margin-bottom: 1rem; font-size: 1.1rem; }
-.footer-brand p { font-size: 0.85rem; color: var(--tan); max-width: 280px; line-height: 1.7; }
-
-.footer-col h5 {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.62rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 1.2rem;
-}
-
-.footer-col ul { list-style: none; }
-.footer-col ul li { margin-bottom: 0.5rem; }
-.footer-col ul li a { color: var(--tan); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
-.footer-col ul li a:hover { color: var(--cream); }
-.footer-col p { font-size: 0.85rem; margin-bottom: 0.4rem; }
-
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.08);
-  padding-top: 2rem;
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.75rem;
-  color: var(--bark);
-}
-
-.footer-bottom a { color: var(--rust); text-decoration: none; }
-
-/* RESPONSIVE */
-@media (max-width: 1000px) {
-  nav { padding: 0 2rem; }
-  .nav-links { display: none; }
-  section { padding: 4rem 2rem; }
-  .hero { grid-template-columns: 1fr; }
-  .hero-right { min-height: 40vh; }
-  .two-col { grid-template-columns: 1fr; gap: 3rem; }
-  .topic-grid { grid-template-columns: repeat(2, 1fr); }
-  .blog-grid { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
-  .page-hero { padding: 7rem 2rem 3rem; }
-  .blog-hero { padding: 7rem 2rem 3rem; }
-}
-
 </style>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Recovery Mob blog covering cold therapy, sauna, contrast therapy, sport-specific recovery, and the latest research on athlete recovery science.">
-<meta property="og:title" content="Recovery Blog — Articles, Research & Protocols | Recovery Mob">
-<meta property="og:description" content="Recovery Mob blog covering cold therapy, sauna, contrast therapy, sport-specific recovery, and the latest research on athlete recovery science.">
-<meta property="og:type" content="website">
-<title>Recovery Blog — Articles, Research & Protocols | Recovery Mob</title>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Recovery Mob", "url": "https://recoveryguy.github.io/recoverymob/index.html", "logo": "https://recoveryguy.github.io/recoverymob/logo.png", "description": "Independent recovery science resource covering cold exposure, heat therapy and recovery systems.", "address": {"@type": "PostalAddress", "streetAddress": "Factory 6, 2-6 Independence Street", "addressLocality": "Moorabbin", "addressRegion": "VIC", "postalCode": "3189", "addressCountry": "AU"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Recovery Mob", "url": "https://recoveryguy.github.io/recoverymob/index.html"}</script>
+</head><body>
+<nav><div class="nav-in"><a href="https://recoveryguy.github.io/recoverymob/index.html" class="logo">
+<svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="20" cy="20" r="16" stroke="#5cc8f5" stroke-width="3" stroke-dasharray="62 18" stroke-linecap="round"/>
+<circle cx="20" cy="20" r="5" fill="#5cc8f5"/>
+</svg>
+<span class="logo-txt">RECOVERY<b>MOB</b><small>SCIENCE · RECOVERY</small></span>
+</a>
+<ul class="nav-links">
+<li><a href="https://recoveryguy.github.io/recoverymob/cold.html">Cold</a></li>
+<li><a href="https://recoveryguy.github.io/recoverymob/heat.html">Heat</a></li>
+<li><a href="https://recoveryguy.github.io/recoverymob/systems.html">Systems</a></li>
+<li><a href="https://recoveryguy.github.io/recoverymob/blog/index.html">Blog</a></li>
+<li><a href="https://recoveryguy.github.io/recoverymob/about.html">About</a></li>
+</ul></div></nav>
 
-
-</head>
-<body>
-<nav>
-  <a href="../index.html" class="nav-logo">RECOVERY<span>MOB</span></a>
-  <ul class="nav-links">
-    <li><a href="../topics.html">Topics</a></li>
-    <li><a href="./index.html">Blog</a></li>
-    <li><a href="../resources.html">Resources</a></li>
-    <li><a href="../about.html">About</a></li>
-    <li><a href="../contact.html">Contact</a></li>
-  </ul>
-</nav>
-<div class="page-hero">
-  <span class="eyebrow">// Blog</span>
-  <h1>Recovery<br>Articles</h1>
-  <p class="lead">In-depth articles on recovery science, protocols, and research. Everything from sport-specific recovery programs to debunking the myths that waste your time.</p>
-</div>
-<section>
-  <div class="blog-grid"><a href="why-most-people-get-contrast-therapy-wrong.html" class="blog-card">
-      <div class="blog-card-img"><span class="cat">Protocol</span></div>
-      <div class="blog-card-body">
-        <span class="date">May 2026</span>
-        <h3>Why Most People Get Contrast Therapy Wrong</h3>
-      </div>
-    </a><a href="ice-bath-temperature-guide.html" class="blog-card">
-      <div class="blog-card-img"><span class="cat">Cold</span></div>
-      <div class="blog-card-body">
-        <span class="date">May 2026</span>
-        <h3>Ice Bath Temperature Guide: What Actually Matters</h3>
-      </div>
-    </a><a href="magnesium-deficiency-athletes.html" class="blog-card">
-      <div class="blog-card-img"><span class="cat">Nutrition</span></div>
-      <div class="blog-card-body">
-        <span class="date">April 2026</span>
-        <h3>Why Athletes Are Almost Always Magnesium Deficient</h3>
-      </div>
-    </a><a href="cold-immersion-mental-benefits.html" class="blog-card">
-      <div class="blog-card-img"><span class="cat">Mental Performance</span></div>
-      <div class="blog-card-body">
-        <span class="date">April 2026</span>
-        <h3>The Mental Benefits of Cold Immersion That Nobody Talks About</h3>
-      </div>
-    </a><a href="recovery-for-muay-thai-and-combat-sports.html" class="blog-card">
-      <div class="blog-card-img"><span class="cat">Sport Specific</span></div>
-      <div class="blog-card-body">
-        <span class="date">March 2026</span>
-        <h3>Recovery for Muay Thai and Combat Sports: What Actually Works</h3>
-      </div>
-    </a><a href="sauna-cardiovascular-research.html" class="blog-card">
-      <div class="blog-card-img"><span class="cat">Science</span></div>
-      <div class="blog-card-body">
-        <span class="date">March 2026</span>
-        <h3>The Cardiovascular Science Behind Regular Sauna Use</h3>
-      </div>
-    </a><a href="building-home-recovery-setup.html" class="blog-card">
-      <div class="blog-card-img"><span class="cat">Practical</span></div>
-      <div class="blog-card-body">
-        <span class="date">February 2026</span>
-        <h3>Building a Home Recovery Setup: What's Worth It and What Isn't</h3>
-      </div>
-    </a><a href="recovery-science-common-myths.html" class="blog-card">
-      <div class="blog-card-img"><span class="cat">Science</span></div>
-      <div class="blog-card-body">
-        <span class="date">February 2026</span>
-        <h3>Recovery Science: Debunking the Most Common Myths</h3>
-      </div>
-    </a><a href="recovery-for-team-sport.html" class="blog-card">
-      <div class="blog-card-img"><span class="cat">Sport Specific</span></div>
-      <div class="blog-card-body">
-        <span class="date">January 2026</span>
-        <h3>Recovery for Team Sport: Managing the Weekly Load</h3>
-      </div>
-    </a></div>
-</section>
+<section style="padding-top:3rem"><div class="wrap">
+<div class="crumb"><a href="https://recoveryguy.github.io/recoverymob/index.html">Home</a><span>/</span>Blog</div>
+<span class="tag">The Blog</span>
+<h1 style="font-family:'Newsreader',serif;font-weight:500;font-size:clamp(2rem,4vw,3rem);line-height:1.1;color:var(--text);margin-bottom:1.1rem;letter-spacing:-.01em">Recovery <em style="font-style:italic;color:var(--ice)">articles.</em></h1>
+<p class="lead">Practical, evidence-based writing on cold, heat, and the systems that support recovery.</p>
+<div class="bloglist"><a href="https://recoveryguy.github.io/recoverymob/blog/contrast-therapy-protocol.html" class="bcard"><div class="bcard-img"><img src="https://images.unsplash.com/photo-1612194881610-85422ec3eab9?fm=jpg&q=75&w=1400&auto=format&fit=crop" alt="The Contrast Therapy Protocol That Actually Works" class="" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a2832 0%,#0d1419 100%)'"><span class="bcard-cat">Protocol</span></div><div class="bcard-body"><h3>The Contrast Therapy Protocol That Actually Works</h3><p>Temperature, timing, and the mistakes that waste your effort.</p></div></a><a href="https://recoveryguy.github.io/recoverymob/blog/ice-bath-temperature.html" class="bcard"><div class="bcard-img"><img src="https://images.unsplash.com/photo-1713270232635-1c521664367a?fm=jpg&q=75&w=1400&auto=format&fit=crop" alt="Ice Bath Temperature: What Actually Matters" class="" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a2832 0%,#0d1419 100%)'"><span class="bcard-cat">Cold</span></div><div class="bcard-body"><h3>Ice Bath Temperature: What Actually Matters</h3><p>Why 6°C and 14°C are not the same stimulus.</p></div></a><a href="https://recoveryguy.github.io/recoverymob/blog/magnesium-athletes.html" class="bcard"><div class="bcard-img"><img src="https://images.unsplash.com/photo-1757689978558-eac49b2e6814?fm=jpg&q=75&w=1400&auto=format&fit=crop" alt="Why Athletes Run Chronically Low on Magnesium" class="" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a2832 0%,#0d1419 100%)'"><span class="bcard-cat">Nutrition</span></div><div class="bcard-body"><h3>Why Athletes Run Chronically Low on Magnesium</h3><p>You sweat it out faster than your diet replaces it.</p></div></a><a href="https://recoveryguy.github.io/recoverymob/blog/cold-mental-benefits.html" class="bcard"><div class="bcard-img"><img src="https://images.unsplash.com/photo-1548236339-55676e0726e0?fm=jpg&q=75&w=1400&auto=format&fit=crop" alt="The Mental Side of Cold Exposure Nobody Talks About" class="" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a2832 0%,#0d1419 100%)'"><span class="bcard-cat">Mindset</span></div><div class="bcard-body"><h3>The Mental Side of Cold Exposure Nobody Talks About</h3><p>Stress tolerance, mood, and voluntary discomfort.</p></div></a><a href="https://recoveryguy.github.io/recoverymob/blog/sauna-cardiovascular.html" class="bcard"><div class="bcard-img"><img src="https://images.unsplash.com/photo-1660735698223-23a4edefa264?fm=jpg&q=75&w=1400&auto=format&fit=crop" alt="What 20 Years of Sauna Research Shows About Your Heart" class="" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a2832 0%,#0d1419 100%)'"><span class="bcard-cat">Science</span></div><div class="bcard-body"><h3>What 20 Years of Sauna Research Shows About Your Heart</h3><p>The Finnish cohort data and the mechanisms behind it.</p></div></a><a href="https://recoveryguy.github.io/recoverymob/blog/heat-acclimation.html" class="bcard"><div class="bcard-img"><img src="https://images.unsplash.com/photo-1717356495389-6ab1e5ff9d84?fm=jpg&q=75&w=1400&auto=format&fit=crop" alt="How Sauna Builds Heat Tolerance and Endurance" class="" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a2832 0%,#0d1419 100%)'"><span class="bcard-cat">Performance</span></div><div class="bcard-body"><h3>How Sauna Builds Heat Tolerance and Endurance</h3><p>Plasma volume, heat tolerance, and a free endurance edge.</p></div></a></div>
+</div></section>
 <footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <a href="../index.html" class="nav-logo">RECOVERY<span style="color:var(--rust)">MOB</span></a>
-      <p>Australia's recovery resource for athletes, active people, and anyone who wants to understand the science of getting better faster.</p>
-    </div>
-    <div class="footer-col">
-      <h5>Topics</h5>
-      <ul>
-        <li><a href="https://recoveryguy.github.io/recoverymob/ice-bath.html">Ice Baths</a></li>
-        <li><a href="https://recoveryguy.github.io/recoverymob/sauna.html">Sauna Therapy</a></li>
-        <li><a href="https://recoveryguy.github.io/recoverymob/contrast-therapy.html">Contrast Therapy</a></li>
-        <li><a href="https://recoveryguy.github.io/recoverymob/red-light-therapy.html">Red Light Therapy</a></li>
-        <li><a href="https://recoveryguy.github.io/recoverymob/magnesium.html">Magnesium</a></li>
-        <li><a href="https://recoveryguy.github.io/recoverymob/compression.html">Compression</a></li>
-        <li><a href="https://recoveryguy.github.io/recoverymob/breathwork.html">Breathwork</a></li>
-        <li><a href="https://recoveryguy.github.io/recoverymob/sleep.html">Sleep & Recovery</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Site</h5>
-      <ul>
-        <li><a href="./index.html">Blog</a></li>
-        <li><a href="../resources.html">Resources</a></li>
-        <li><a href="../about.html">About</a></li>
-        <li><a href="../contact.html">Contact</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Find Us</h5>
-      <p>Factory 6, 2-6 Independence Street</p>
-      <p>Moorabbin VIC 3189</p>
-      <p style="margin-top:0.6rem;"><a href="tel:0423111322" style="color:var(--rust);text-decoration:none;">0423 111 322</a></p>
-      <p>info@primalrecovery.net.au</p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 Recovery Mob — Melbourne Recovery Resource</p>
-    <p>Part of Primal Recovery Centre</p>
-  </div>
+<div class="foot-in">
+<div class="foot-brand"><a href="https://recoveryguy.github.io/recoverymob/index.html" class="logo">
+<svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="20" cy="20" r="16" stroke="#5cc8f5" stroke-width="3" stroke-dasharray="62 18" stroke-linecap="round"/>
+<circle cx="20" cy="20" r="5" fill="#5cc8f5"/>
+</svg>
+<span class="logo-txt">RECOVERY<b>MOB</b><small>SCIENCE · RECOVERY</small></span>
+</a>
+<p>Independent recovery science resource. Evidence-based guides on cold exposure, heat therapy, and recovery systems.</p>
+<p class="foot-addr">Factory 6, 2-6 Independence Street, Moorabbin VIC 3189</p>
+</div>
+<div class="foot-links">
+<div class="foot-col"><h5>Explore</h5><ul>
+<li><a href="https://recoveryguy.github.io/recoverymob/cold.html">Cold Exposure</a></li>
+<li><a href="https://recoveryguy.github.io/recoverymob/heat.html">Heat Therapy</a></li>
+<li><a href="https://recoveryguy.github.io/recoverymob/systems.html">Recovery Systems</a></li>
+<li><a href="https://recoveryguy.github.io/recoverymob/blog/index.html">Blog</a></li>
+</ul></div>
+<div class="foot-col"><h5>Site</h5><ul>
+<li><a href="https://recoveryguy.github.io/recoverymob/about.html">About</a></li>
+<li><a href="https://recoveryguy.github.io/recoverymob/contact.html">Contact</a></li>
+<li><a href="https://recoveryguy.github.io/recoverymob/privacy.html">Privacy Policy</a></li>
+<li><a href="https://recoveryguy.github.io/recoverymob/disclaimer.html">Disclaimer</a></li>
+</ul></div>
+</div>
+</div>
+<div class="foot-bottom">
+<span>© 2026 Recovery Mob</span>
+<span>Published by the Recovery Editorial Team</span>
+</div>
 </footer>
-</body>
-</html>
+</body></html>
